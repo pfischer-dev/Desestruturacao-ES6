@@ -1,4 +1,14 @@
-import { practice } from "./practice";
+import { cars } from "./practice.js";
+
+
+const [ tesla, honda ] = cars;
+
+const {speedStats: {topSpeed: teslaTopSpeed}, coloursByPopularity: [ teslaTopColour ]} = tesla;
+const {speedStats: {topSpeed: hondaTopSpeed}, coloursByPopularity: [ hondaTopColour ]} = honda;
+/* Minha SOLUÇÃO, mas o foco era a desestruturação  e preferi esta por estar com objetos aninhados
+const [ teslaTopSpeed, hondaTopSpeed ] = cars.map(car => car.speedStats.topSpeed);
+const [ teslaTopColour, hondaTopColour ] = cars.map(car => car.coloursByPopularity[0]); */
+
 
 export function App() {
   return (
@@ -9,7 +19,7 @@ export function App() {
         </tr>
         <tr>
         <td>{tesla.model}</td>
-        <td>{teslaTopSpeed}</td>
+        {<td>{teslaTopSpeed}</td>}
         <td>{teslaTopColour}</td>
         </tr>
         <tr>
@@ -19,7 +29,6 @@ export function App() {
         </tr>
       </table>
   )
-  
 }
 
 // CHALLENGE: uncomment the code below and see the car stats rendered
